@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         if(mediaPlayer !=null){
-            mediaPlayer.release();
             mediaPlayer.stop();
+            mediaPlayer.release();
             mediaPlayer = null;
         }
     }
