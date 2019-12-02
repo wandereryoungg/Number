@@ -211,6 +211,7 @@ public class OneActivity extends AppCompatActivity {
     }
 
     private void dialog() {
+        /*
         typeDialog = false;
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("提示");
@@ -232,6 +233,26 @@ public class OneActivity extends AppCompatActivity {
             }
         });
         builder.show();
+         */
+        typeDialog = false;
+        final YoungDialog youngDialog = new YoungDialog.Builder(this).setIcon(R.drawable.dialog)
+                .setTitle("提示")
+                .setMessage("太棒了，完成了书写- -")
+                .setPositiveButton("完成", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        typeDialog = true;
+                        finish();
+                    }
+                })
+                .setNegativeButton("再来一次", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        typeDialog = true;
+                        loadImg(1);
+                    }
+                }).create();
+        youngDialog.show();
     }
 
     private void playMusic() {

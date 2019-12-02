@@ -13,6 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 public class YoungDialog extends Dialog {
+
+    public YoungDialog(@NonNull Context context) {
+        super(context);
+    }
+
     public YoungDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
     }
@@ -29,10 +34,11 @@ public class YoungDialog extends Dialog {
         private YoungDialog youngDialog;
 
         public Builder(Context context){
-            youngDialog = new YoungDialog(context,R.style.Theme_AppCompat_Dialog);
+            youngDialog = new YoungDialog(context);
+            //youngDialog = new YoungDialog(context,R.style.Theme_AppCompat_Dialog);
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.young_dialog,null,false);
-            youngDialog.addContentView(view,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            //youngDialog.addContentView(view,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             dialogIcon = view.findViewById(R.id.dialog_icon);
             dialogTitle = view.findViewById(R.id.dialog_title);
             dialogMessage = view.findViewById(R.id.dialog_message);
@@ -88,6 +94,10 @@ public class YoungDialog extends Dialog {
                     againOnClickListener.onClick(v);
                 }
             });
+            /*
+            btnDone.setOnClickListener(doneOnClickListener);
+            btnAgain.setOnClickListener(againOnClickListener);
+             */
             youngDialog.setContentView(view);
             youngDialog.setCancelable(false);
             youngDialog.setCanceledOnTouchOutside(false);
